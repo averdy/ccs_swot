@@ -11,10 +11,10 @@ The high-resolution CCS regional state estimate runs on the NASA Pleiades comput
 
 *** MITgcm code
 
-1) obtain MITgcm checkpoint 68i
-git clone https://github.com/MITgcm/MITgcm.git
-cd MITgcm
+1) obtain MITgcm checkpoint 68i <br />
+git clone https://github.com/MITgcm/MITgcm.git <br />
+cd MITgcm <br />
 git checkout checkpoint68i
 
 
-2) Obtain CCS-specific code and inputs
+2) Obtain CCS-specific code and inputs <br />
