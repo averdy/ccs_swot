@@ -34,18 +34,20 @@ Notes on the code:
 Modify ~/.bashrc to look like this: <br />
 
 ------------------  <br />
-# .bashrc <br />
+.bashrc <br />
 
-# Source global definitions <br />
+\# Source global definitions <br />
 if [ -f /etc/bashrc ]; then <br />
         . /etc/bashrc <br />
 fi <br />
 
-# setting up for taf <br />
+\# setting up for taf <br />
 export PATH=/home4/averdy/STAF:${PATH} <br />
+L
+-
 
-# Load modules <br />
-module load comp-intel/2016.2.181 mpi-sgi/mpt.2.14r19 hdf4/4.2.12 hdf5/1.8.18_mpt  <br />netcdf/4.4.1.1_mpt <br />
+
+Load modules module load comp-intel/2016.2.181 mpi-sgi/mpt.2.14r19 hdf4/4.2.12 hdf5/1.8.18_mpt  <br />netcdf/4.4.1.1_mpt <br />
 -----------------
 
 
