@@ -9,7 +9,8 @@ Summary:
 The high-resolution CCS regional state estimate runs on the NASA Pleiades computer. The run is for October 1-22, 2019 (22 days) and constraints are satellite SST. Currently, profiles, geoid and altimetry constraints are not working. The model is forced with ERA5, with initial and open boundary conditions from HYCOM reanalysis. Two iterations are run (adjoint, packing, optim, unpacking) and the cost descends xxx%. To reproduce this, follow the steps below.
 
 
-*** Model code
+-----------------
+# Model code
 
 1) obtain MITgcm checkpoint 68i <br />
 % git clone https://github.com/MITgcm/MITgcm.git <br />
@@ -28,7 +29,8 @@ Notes on the code:
 - Still tuning CPP_OPTIONS, etc <br />
 
 
-*** Compiling 
+-----------------
+# Compiling 
 
 1) Loading modules <br />
 Modify ~/.bashrc to look like this: <br />
@@ -36,19 +38,14 @@ Modify ~/.bashrc to look like this: <br />
 ------------------  <br />
 .bashrc <br />
 
-\# Source global definitions <br />
 if [ -f /etc/bashrc ]; then <br />
         . /etc/bashrc <br />
 fi <br />
 
-\# setting up for taf <br />
 export PATH=/home4/averdy/STAF:${PATH} <br />
-L
--
-
 
 Load modules module load comp-intel/2016.2.181 mpi-sgi/mpt.2.14r19 hdf4/4.2.12 hdf5/1.8.18_mpt  <br />netcdf/4.4.1.1_mpt <br />
------------------
+------------------  <br />
 
 
 2) Set up TAF
@@ -116,11 +113,9 @@ LIBS            = -llsopt_ecco                  \ <br />
                   -lpthread                     \ <br />
                   -lmpi <br />
 and  <br />
-# default is (Linux) <br />
 FC              = f77 <br />
 FFLAGS          = -fconvert=big-endian -fimplicit-none <br />
 with  <br />
-# ifort compilers <br />
 FC              = ifort <br />
 FFLAGS          =  -mcmodel=large -shared-intel -fp-model precise -132 -r8 -i4 -W0 -WB -CB -fpe0 -traceback -convert big_endian -assume byterecl <br />
 
@@ -129,7 +124,8 @@ and then use <br />
 % make <br />
 
 
-*** Model inputs
+-----------------
+# Model inputs
 
 1) grid: <br />
 - Bathymetry is from Alex: TFO_2km_bathy.bin <br />
@@ -137,7 +133,7 @@ and then use <br />
 - Run for a few time steps to generate grid files (XC.data, YC.data, etc) <br />
 
 2) constraints: <br />
-- Obtain Argo profiles for 2019 (Sharon E. processed) <br />
+- Obtain Argo profiles for 2019 (processed by Sharon E.) <br />
 - Make SST constraint for 2019 (make_OISST_ccs.m) <br />
 - Make SSH constraint for 2019 (Krads2grd_CCS.E.PER_YEAR / rads_QC_peryear.m) <br />
 - Make geoid constraint (mdt_products_regrid.m) <br />
@@ -162,8 +158,11 @@ geoid (10 cm uniform) <br />
 *
 
 
-*** Running
+-----------------
+# Running
 
 Create run directory <br />
 mkdir /nobackup/averdy/CCS/run_ad <br />
+
+-----------------
 
