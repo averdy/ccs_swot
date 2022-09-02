@@ -6,7 +6,7 @@ and code from Alex A.
 
 
 Summary:
-The high-resolution CCS regional state estimate runs on the NASA Pleiades computer. The run is for October 1-22, 2019 (22 days) and constraints are altimetry, satellite SST, and Argo profiles. The model is forced with ERA5, with initial and open boundary conditions from HYCOM reanalysis. Two iterations are run (adjoint, packing, optim, unpacking) and the cost descends by xxx%. To reproduce this, follow the steps below.
+The high-resolution CCS regional state estimate runs on the NASA Pleiades computer. The run is for October 1-22, 2019 (22 days) and constraints are altimetry, satellite SST, and Argo profiles. The model is forced with ERA5, with initial and open boundary conditions from HYCOM reanalysis. Two iterations are run (forward+adjoint, packing, optim, unpacking) and the cost descends by ***%. To reproduce this, follow the steps below.
 
 
 -----------------
@@ -24,7 +24,7 @@ The high-resolution CCS regional state estimate runs on the NASA Pleiades comput
 
 Notes on the code:
 - The size of the model grid is 774x966, with 126 tiles of size 86x69. Thus it requires 126 processes to run. With Alex's original 36-tile configuration, the memory use is too high (nodes crash). <br />
-- The time step is 300 seconds (5 minutes). It takes * minutes to run 22 days fwd+adjoint (45 minutes fwd). <br />
+- The time step is 300 seconds (5 minutes). It takes *** minutes to run 22 days fwd+adjoint (45 minutes fwd). <br />
 - It is set up for a 22-day run. For longer runs, need to adjust tamc.h  <br />
 - Still tuning CPP_OPTIONS, etc <br />
 
@@ -150,12 +150,12 @@ geoid (10 cm uniform) <br />
 - Make ICs from HYCOM - nov 1, 2019 (make_ics_hycom.m) <br />
 - Make OBCs from HYCOM - jan-dec 2019 (make_obcs_hycom.m) <br />
 - Make runoff from CORE climatology (make_runoff_core.m) <br />
-- * tides <br />
+- *** tides <br />
 
 
 5) MITgcm data files: <br />
-- Take Alex's files, from LLC4320 (?), and change: <br />
-*
+- Take Alex's files, from LLC4320, and change: <br />
+***
 
 
 -----------------
