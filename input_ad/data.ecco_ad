@@ -1,0 +1,49 @@
+# ******************
+# ECCO cost function
+# ******************
+#
+ &ECCO_COST_NML
+#
+ using_cost_sst = .TRUE.,
+ using_cost_altim = .TRUE.,
+#
+ cost_iprec  = 32,
+ cost_yftype = 'RL',
+#
+ /
+#
+ &ECCO_GENCOST_NML
+# SST -- this is normal gencost 
+ gencost_avgperiod(1)  = 'day',
+ gencost_startdate1(1) = 20190101,
+ gencost_startdate2(1) = 00000,
+ gencost_barfile(1) = 'm_sst_day',
+ gencost_datafile(1) = 'mw_fusion_ccs',
+ gencost_errfile(1) = 'SST_fromArgo.err',
+ gencost_name(1) = 'sst-MW',
+ gencost_spmin(1) = -1.8,
+ gencost_spmax(1) = 40.,
+ gencost_spzero(1) = 0.,
+ gencost_outputlevel(1)=1,
+ mult_gencost(1) = 0.01,
+#
+# gencost_datafile(2) = 'dtu19mdt2_cm_ccs.bin',
+# gencost_startdate1(2) = 20010101,
+# gencost_startdate2(2) = 00000,
+# gencost_errfile(2) = 'geoid_error_10cm.bin',
+# gencost_name(2) = 'sshv4-mdt',
+# gencost_outputlevel(2)=1,
+# mult_gencost(2) = 0.1,
+#
+ gencost_avgperiod(12)  = 'day',
+ gencost_startdate1(2) = 20190101,
+ gencost_startdate2(2) = 00000,
+ gencost_barfile(2) = 'm_eta_day',
+ gencost_datafile(2) = 'rads_j3_ccs_QC',
+ gencost_avgperiod(2)  = 'day',
+ gencost_errfile(2) = 'ssh_error_ccs_3cm.bin',
+ gencost_name(2) = 'sshv4-tp',
+ gencost_outputlevel(2)=1,
+ mult_gencost(2) = 1.0,
+ /
+#

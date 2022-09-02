@@ -1,0 +1,9 @@
+# ******************
+# PROFILES cost f',tion
+# ******************
+ &PROFILES_NML
+# profilesDir = 'PROF',
+ profilesfiles(1) = 'USGO_TP_2019_PFL_D_w',
+ mult_profiles(1,1)   = 1.0,
+ mult_profiles(1,2)   = 1.0,
+ &
