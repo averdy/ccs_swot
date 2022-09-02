@@ -155,14 +155,16 @@ geoid (10 cm uniform) <br />
 
 5) MITgcm data files: <br />
 - Take Alex's files, from LLC4320, and change: <br />
-***
+- ***
 
 
 -----------------
 # Running
 
 Create run directory <br />
-mkdir /nobackup/averdy/CCS/run_ad <br />
+% mkdir /nobackup/averdy/CCS/run_ad <br />
+
+
 
 -----------------
 
