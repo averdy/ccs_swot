@@ -22,7 +22,7 @@ The high-resolution CCS regional state estimate runs on the NASA Pleiades comput
 % git clone https://github.com/averdy/ccs_swot <br />
 
 
-Notes on the code:
+<b>Notes on the code:</b>
 - The size of the model grid is 774x966, with 126 tiles of size 86x69. Thus it requires 126 processes to run. With Alex's original 36-tile configuration, the memory use is too high (nodes crash). <br />
 - The time step is 300 seconds (5 minutes). It takes *** minutes to run 22 days fwd+adjoint (45 minutes fwd). <br />
 - It is set up for a 22-day run. For longer runs, need to adjust tamc.h  <br />
@@ -32,7 +32,7 @@ Notes on the code:
 -----------------
 # Compiling 
 
-1) Loading modules <br />
+<b>1) Loading modules</b><br />
 Modify ~/.bashrc to look like this: <br />
 
 ------------------  <br />
@@ -48,7 +48,7 @@ Load modules module load comp-intel/2016.2.181 mpi-sgi/mpt.2.14r19 hdf4/4.2.12 h
 ------------------  <br />
 
 
-2) Set up TAF
+<b>2) Set up TAF</b>
 
 Copy  taf.pub  keys (from .ssh/ on mist.ucsd.edu) to /home4/averdy/.ssh/ 
 
@@ -56,7 +56,7 @@ testing TAF: <br />
 % staf -test <br />
 
 
-3) Create blas libraries
+<b>3) Create blas libraries</b>
 
 Compile ~/MITgcm/lsopt
 
@@ -71,7 +71,7 @@ and then use   <br />
 % make all <br />
 
 
-4) Compile the code 
+<b>4) Compile the code </b>
 
 Generate executable mitgcmuv_ad: <br />
 cd /home4/averdy/MITgcm/assim/CCS/build_ad/ <br />
@@ -90,7 +90,7 @@ Generate pack/unpack executables: <br />
 % cp mitgcmuv mitgcmuv_unpack <br />
 
 
-5) Compile line-search algorithm <br />
+<b>5) Compile line-search algorithm</b> <br />
 
 Generate optim.x in /home4/averdy/MITgcm/optim/ <br />
 
@@ -127,25 +127,25 @@ and then use <br />
 -----------------
 # Model inputs
 
-1) grid: <br />
+<b>1) grid:</b> <br />
 - Bathymetry is from Alex: TFO_2km_bathy.bin <br />
 - Vertical resolution is Ariane's 100 levels: delRFile_100_5100m.bin <br />
 - Run for a few time steps to generate grid files (XC.data, YC.data, etc) <br />
 
-2) constraints: <br />
+<b>2) constraints:</b> <br />
 - Obtain Argo profiles for 2019 (processed by Sharon E.) <br />
 - Make SST constraint for 2019 (make_OISST_ccs.m) <br />
 - Make SSH constraint for 2019 (Krads2grd_CCS.E.PER_YEAR / rads_QC_peryear.m) <br />
 - Make geoid constraint (mdt_products_regrid.m) <br />
 
-3) weights: <br />
+<b>3) weights:</b> <br />
 - Make uncertainties for ICS and SST (make_mapped_weights_from_Argo_error.m), <br />
 atm state (ERA_make_weights.m), <br />
 SSH (make_error_ssh.m; 3 or 6 cm uniform), <br />
 geoid (10 cm uniform) <br />
 
 
-4) forcing: <br />
+<b>4) forcing:</b> <br />
 - Obtain ERA5 for 2019 <br />
 - Make ICs from HYCOM - nov 1, 2019 (make_ics_hycom.m) <br />
 - Make OBCs from HYCOM - jan-dec 2019 (make_obcs_hycom.m) <br />
@@ -153,7 +153,7 @@ geoid (10 cm uniform) <br />
 - *** tides <br />
 
 
-5) MITgcm data files: <br />
+<b>5) MITgcm data files:</b> <br />
 - Take Alex's files, from LLC4320, and change: <br />
 - ...
 
