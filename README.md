@@ -32,7 +32,7 @@ The high-resolution CCS regional state estimate runs on the NASA Pleiades comput
 -----------------
 # Compiling 
 
-1) <b>Loading modules</b><br />
+1) <b>Load modules</b><br />
 Modify ~/.bashrc to look like this: <br />
 ------------------  <br />
 .bashrc <br />
@@ -119,26 +119,26 @@ and then use <br />
 1) <b>grid:</b> <br />
 - Bathymetry is from Alex: TFO_2km_bathy.bin <br />
 - Vertical resolution is Ariane's 100 levels: delRFile_100_5100m.bin <br />
-- Run for a few time steps to generate grid files (XC.data, YC.data, etc) <br />
+- I ran the model for a few time steps to generate grid files (XC.data, YC.data, etc) <br />
 
 2) <b>constraints:</b> <br />
-- Obtain Argo profiles for 2019 (processed by Sharon E.) <br />
-- Make SST constraint for 2019 (make_OISST_ccs.m) <br />
-- Make SSH constraint for 2019 (Krads2grd_CCS.E.PER_YEAR / rads_QC_peryear.m) <br />
-- Make geoid constraint (mdt_products_regrid.m) <br />
+- Argo profiles for 2019 were processed by Sharon E. <br />
+- Satellite SST was obtained from Remote Sensing Systems and processed for 2019 (make_OISST_ccs.m) <br />
+- Altimetry was obtained from Radar Altimetry Database System and processed for 2019 (Krads2grd_CCS.E.PER_YEAR / rads_QC_peryear.m) <br />
+- Geoid product was obtained from DTU and processed (mdt_products_regrid.m) <br />
 
 3) <b>weights:</b> <br />
-- Make uncertainties for ICS and SST (make_mapped_weights_from_Argo_error.m), <br />
-atm state (ERA_make_weights.m), <br />
-SSH (make_error_ssh.m; 3 or 6 cm uniform), <br />
-geoid (10 cm uniform) <br />
+- Uncertainties for ICS and SST were derived from misfits between Argo profiles and Argo mapped product (make_mapped_weights_from_Argo_error.m), <br />
+- Uncertainties for the atmospheric state were derived from ERA5 standard deviations (ERA_make_weights.m), <br />
+- Uncertainty for SSH is uniform: 3 cm for Jason3, 6 cm for other satellites (make_error_ssh.m), <br />
+- Uncertainty for the geoid is uniform, 10 cm. <br />
 
 
 4) <b>forcing:</b> <br />
-- Obtain ERA5 for 2019 <br />
-- Make ICs from HYCOM - nov 1, 2019 (make_ics_hycom.m) <br />
-- Make OBCs from HYCOM - jan-dec 2019 (make_obcs_hycom.m) <br />
-- Make runoff from CORE climatology (make_runoff_core.m) <br />
+- Hourly atmospheric state was obtained from ERA5 for 2019 <br />
+- ICs were derived from HYCOM for November 1, 2019 (make_ics_hycom.m) <br />
+- OBCs were derived from HYCOM for Jan-Dec 2019 (make_obcs_hycom.m) <br />
+- Runoff was obtained from CORE climatology (make_runoff_core.m) <br />
 - *** tides <br />
 
 
