@@ -6,7 +6,7 @@ and code from Alex A.
 
 
 Summary:
-The high-resolution CCS regional state estimate runs on the NASA Pleiades computer. The run is for October 1-22, 2019 (22 days) and constraints are satellite SST. Currently, profiles, geoid and altimetry constraints are not working. The model is forced with ERA5, with initial and open boundary conditions from HYCOM reanalysis. Two iterations are run (adjoint, packing, optim, unpacking) and the cost descends by xxx%. To reproduce this, follow the steps below.
+The high-resolution CCS regional state estimate runs on the NASA Pleiades computer. The run is for October 1-22, 2019 (22 days) and constraints are altimetry, satellite SST, and Argo profiles. The model is forced with ERA5, with initial and open boundary conditions from HYCOM reanalysis. Two iterations are run (adjoint, packing, optim, unpacking) and the cost descends by xxx%. To reproduce this, follow the steps below.
 
 
 -----------------
