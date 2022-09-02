@@ -32,55 +32,45 @@ The high-resolution CCS regional state estimate runs on the NASA Pleiades comput
 -----------------
 # Compiling 
 
-<b>1) Loading modules</b><br />
+1) <b>Loading modules</b><br />
 Modify ~/.bashrc to look like this: <br />
-
 ------------------  <br />
 .bashrc <br />
-
 if [ -f /etc/bashrc ]; then <br />
         . /etc/bashrc <br />
 fi <br />
-
 export PATH=/home4/averdy/STAF:${PATH} <br />
-
 Load modules module load comp-intel/2016.2.181 mpi-sgi/mpt.2.14r19 hdf4/4.2.12 hdf5/1.8.18_mpt  <br />netcdf/4.4.1.1_mpt <br />
 ------------------  <br />
 
 
-<b>2) Set up TAF</b>
-
+2) <b>Set up TAF</b><br />
 Copy  taf.pub  keys (from .ssh/ on mist.ucsd.edu) to /home4/averdy/.ssh/ 
-
 testing TAF: <br />
 % staf -test <br />
 
 
-<b>3) Create blas libraries</b>
-
-Compile ~/MITgcm/lsopt
-
+3) <b>Create blas libraries</b><br />
+Compile ~/MITgcm/lsopt <br />
 Modify Makescript, replacing  <br />
+------------------  <br />
 FC              = f77 <br />
 FFLAGS          = -fconvert=big-endian -fimplicit-none <br />
 with <br />
 FC              = ifort <br />
 FFLAGS          = -mcmodel=large -shared-intel -fp-model precise -132 -r8 -i4 -W0 -WB -CB -fpe0 -traceback -convert big_endian -assume byterecl <br />
-
+------------------  <br />
 and then use   <br />
 % make all <br />
 
 
-<b>4) Compile the code </b>
-
+4) <b>Compile the code </b><br />
 Generate executable mitgcmuv_ad: <br />
 cd /home4/averdy/MITgcm/assim/CCS/build_ad/ <br />
-./makescript_adj.sio.pleiades  <br />
-
+./makescript_adj.sio.pleiades  <br /><br />
 The makescript calls options that are in <br />
 /home4/averdy/MITgcm/assim/pleiades_build_options/linux_amd64_ifort+mpi_ice_nas  <br />
-and includes the necessary MPI headers <br />
-
+and includes the necessary MPI headers <br /><br />
 Generate pack/unpack executables: <br />
 % cd /home4/averdy/MITgcm/assim/CCS/build_pack/ <br />
 % ./makescript_fwd.sio.pleiades  <br />
@@ -90,21 +80,20 @@ Generate pack/unpack executables: <br />
 % cp mitgcmuv mitgcmuv_unpack <br />
 
 
-<b>5) Compile line-search algorithm</b> <br />
-
+5) <b>Compile line-search algorithm</b> <br />
 Generate optim.x in /home4/averdy/MITgcm/optim/ <br />
-
 Modify Makescript, replacing  <br />
+------------------  <br />
 INCLUDEDIRS     = -I.                           \ <br />
                   -I../verification/tutorial_global_oce_optim/build/ <br />
 with  <br />
 INCLUDEDIRS     = -I.                           \ <br />
                   -I../assim/CCS/build_pack/ <br />
-and <br />
+------------------  <br />
        -DMAX_INDEPEND=1000000          \ <br />
 with  <br />
        -DMAX_INDEPEND=305584550        \ <br />
-and <br />
+------------------  <br />
 LIBS            = -llsopt_ecco                 \ <br />
                   -lblas1 <br />
 with <br />
@@ -112,13 +101,13 @@ LIBS            = -llsopt_ecco                  \ <br />
                   -mkl                          \ <br />
                   -lpthread                     \ <br />
                   -lmpi <br />
-and  <br />
+------------------  <br />
 FC              = f77 <br />
 FFLAGS          = -fconvert=big-endian -fimplicit-none <br />
 with  <br />
 FC              = ifort <br />
 FFLAGS          =  -mcmodel=large -shared-intel -fp-model precise -132 -r8 -i4 -W0 -WB -CB -fpe0 -traceback -convert big_endian -assume byterecl <br />
-
+------------------  <br />
 and then use <br />
 % make depend <br />
 % make <br />
@@ -127,25 +116,25 @@ and then use <br />
 -----------------
 # Model inputs
 
-<b>1) grid:</b> <br />
+1) <b>grid:</b> <br />
 - Bathymetry is from Alex: TFO_2km_bathy.bin <br />
 - Vertical resolution is Ariane's 100 levels: delRFile_100_5100m.bin <br />
 - Run for a few time steps to generate grid files (XC.data, YC.data, etc) <br />
 
-<b>2) constraints:</b> <br />
+2) <b>constraints:</b> <br />
 - Obtain Argo profiles for 2019 (processed by Sharon E.) <br />
 - Make SST constraint for 2019 (make_OISST_ccs.m) <br />
 - Make SSH constraint for 2019 (Krads2grd_CCS.E.PER_YEAR / rads_QC_peryear.m) <br />
 - Make geoid constraint (mdt_products_regrid.m) <br />
 
-<b>3) weights:</b> <br />
+3) <b>weights:</b> <br />
 - Make uncertainties for ICS and SST (make_mapped_weights_from_Argo_error.m), <br />
 atm state (ERA_make_weights.m), <br />
 SSH (make_error_ssh.m; 3 or 6 cm uniform), <br />
 geoid (10 cm uniform) <br />
 
 
-<b>4) forcing:</b> <br />
+4) <b>forcing:</b> <br />
 - Obtain ERA5 for 2019 <br />
 - Make ICs from HYCOM - nov 1, 2019 (make_ics_hycom.m) <br />
 - Make OBCs from HYCOM - jan-dec 2019 (make_obcs_hycom.m) <br />
@@ -153,7 +142,7 @@ geoid (10 cm uniform) <br />
 - *** tides <br />
 
 
-<b>5) MITgcm data files:</b> <br />
+5) <b>MITgcm data files:</b> <br />
 - Take Alex's files, from LLC4320, and change: <br />
 - ...
 
