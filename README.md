@@ -65,8 +65,8 @@ and then use   <br />
 
 4) <b>Compile the code </b><br />
 Generate executable mitgcmuv_ad: <br />
-cd /home4/averdy/MITgcm/assim/CCS/build_ad/ <br />
-./makescript_adj.sio.pleiades  <br /><br />
+% cd /home4/averdy/MITgcm/assim/CCS/build_ad/ <br />
+% ./makescript_adj.sio.pleiades  <br /><br />
 The makescript calls options that are in <br />
 /home4/averdy/MITgcm/assim/pleiades_build_options/linux_amd64_ifort+mpi_ice_nas  <br />
 and includes the necessary MPI headers <br /><br />
