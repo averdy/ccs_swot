@@ -6,8 +6,7 @@ and code from Alex A.
 
 
 Summary:
-The high-resolution CCS regional state estimate runs on the NASA Pleiades computer. The run is for October 1-22, 2019 (22 days) and constraints are altimetry, satellite SST, and Argo profiles. The model is forced with ERA5, with initial and open boundary conditions from HYCOM reanalysis. Two iterations are run (forward+adjoint, packing, optim, unpacking) and the cost descends by ***%. To reproduce this, follow the steps below.
-
+The high-resolution CCS regional state estimate runs on the NASA Pleiades computer. The run is for November 1-11, 2019 (11 days) and constraints are altimetry, satellite SST, and Argo profiles. The model is forced with ERA5, with initial and open boundary conditions from HYCOM reanalysis. The size of the model grid is 774x966, with 126 tiles of size 86x69. The time step is 300 seconds (5 minutes); it takes ~20 hours to run fwd+adjoint. Two iterations are run (adjoint, packing, optim, unpacking) and the cost descends by 9%. To reproduce this, follow the steps below.
 
 -----------------
 # Model code
@@ -133,18 +132,20 @@ and then use <br />
 - Uncertainty for SSH is uniform: 3 cm for Jason3, 6 cm for other satellites (make_error_ssh.m), <br />
 - Uncertainty for the geoid is uniform, 10 cm. <br />
 
-
 4) <b>forcing:</b> <br />
 - Hourly atmospheric state was obtained from ERA5 for 2019 <br />
 - ICs were derived from HYCOM for November 1, 2019 (make_ics_hycom.m) <br />
 - OBCs were derived from HYCOM for Jan-Dec 2019 (make_obcs_hycom.m) <br />
 - Runoff was obtained from CORE climatology (make_runoff_core.m) <br />
-- *** tides <br />
-
 
 5) <b>MITgcm data files:</b> <br />
-- Take Alex's files, from LLC4320, and change: <br />
-- ...
+- Data files are adapted from MITgcm_contrib/llc_hires/llc_4320 <br />
+- Modifications include the following: </br>
+- in data: vertical viscosity (viscAz=2.E-5), vertical diffusivity (diffKzT=diffKzS=5.E-6), advection scheme (tempAdvScheme=saltAdvScheme=33), exactConserv=.FALSE., 3D horizontal viscosity files (viscAhDfile=viscAhZfile='visc100_ccs.bin') </br>
+- in data.autodiff: set useKPPinAdMode = .FALSE. and viscFacInAd = 10.0 </br>
+- in data.ctrl: set vertical thickness scaling (doZscalePack = .TRUE., doZscaleUnpack = .TRUE., delZexp = 1.)
+- in data.ecco: use gencost_barfile(3) = 'm_eta_dyn_day', and not 'm_eta_dyn', to account for the surface pressure component. SSH cost is given a large weight (mult_gencost(3) = 100.0) because of the paucity of data. The geoid cost is assigned 0 weight until I figure out how to deal with the short assimilation time. SST is given a small weight (mult_gencost(1) = 0.001) because daily data are not independent </br>
+- in data.smooth: set smoothing scales (5 km for all fields) and nbt=3000 (fewer is unstable) </br>
 
 
 -----------------
@@ -152,6 +153,24 @@ and then use <br />
 
 Create run directory <br />
 % mkdir /nobackup/averdy/CCS/run_ad <br />
+
+Clean folder and make links <br />
+% ./clean.x
+% ./make_links.x
+
+Submit to queue <br />
+% qsub pleiades_adj_submit.x
+
+For iteration 0 only: <br />
+in data.optim, set fmin = 95% of the value of costfinal
+
+then pack, optim: <br />
+% qsub pleiades_pack_submit.x <br />
+% qsub pleiades_optim_submit.x
+
+increase the value of optimcycle by 1 in data.optim <br />
+and unpack <br />
+% qsub pleiades_unpack_submit.x
 
 
 
