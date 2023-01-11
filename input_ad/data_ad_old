@@ -1,0 +1,114 @@
+# ====================
+# | Model parameters |
+# ====================
+#
+# Continuous equation parameters
+ &PARM01
+# global_oce_cs32 setup
+ viscAz=5.E-4,
+# viscAh=5.E2,
+# viscA4=1.E11,
+# diffKhT=1.E2,
+ diffKzT=5.E-7,
+# diffK4T=1.E11,
+# diffKhS=1.E2,
+ diffKzS=5.E-7,
+# diffK4S=1.E11,
+ viscC4Leith=2.15,
+ viscC4Leithd=2.15,
+ viscA4GridMax=0.8,
+ bottomDragQuadratic = 0.002,
+ useAreaViscLength=.TRUE.,
+ beta=1.E-11,
+ tAlpha=2.E-4,
+ sBeta =7.4E-4,
+ rhonil=1027.5,
+ rhoConstFresh=1000.,
+ gravity=9.81,
+ eosType = 'JMD95Z',
+ implicitDiffusion=.true.,
+ implicitViscosity=.true.,
+ implicitFreeSurface=.true.,
+ allowFreezing=.FALSE.,
+ convertFW2Salt = -1.,
+ useRealFreshWaterFlux=.FALSE.,
+ useCDscheme=.FALSE.,
+ useSingleCpuIO=.FALSE.,
+ vectorInvariantMomentum=.TRUE.,
+ staggerTimeStep=.TRUE.,
+ multiDimAdvection=.TRUE.,
+ tempAdvScheme=33,
+ saltAdvScheme=33,
+ exactConserv=.FALSE.,
+# turn on lopped cells
+ hFacMin=0.3,
+ hFacMindz=50.,
+# set precision of data files
+ readBinaryPrec=32,
+ writeBinaryPrec=32,
+ globalfiles=.FALSE.,
+ rotationPeriod=86164.,
+ debugLevel=0,
+ /
+
+# Elliptic solver parameters
+ &PARM02
+ cg2dMaxIters = 1000,
+ cg2dTargetResidual=1.E-8,
+ /
+
+# Time stepping parameters
+ &PARM03
+ nIter0 =        0,
+# nTimeSteps = 6336,
+ nTimeSteps = 3168,
+ deltaTmom   = 300.0,
+ deltaTtracer= 300.0,
+ deltaTClock = 300.0,
+ pickupStrictlyMatch=.FALSE.,
+ dumpInitAndLast=.FALSE.
+ writePickupAtEnd=.FALSE.,
+ pChkptFreq= 0.,
+ dumpFreq= 0.,
+ taveFreq= 0.,
+ adjDumpFreq= 86400.,
+ monitorFreq= 432000.0,
+ forcing_In_AB = .FALSE.,
+ momDissip_In_AB=.FALSE.,
+ doAB_onGtGs=.FALSE.,
+ alph_AB=0.5,
+ beta_AB=0.281105,
+#
+# periodicExternalForcing=.TRUE.,
+# externForcingPeriod=2629800.,
+# externForcingCycle=31557600.,
+#
+ /
+
+# Gridding parameters
+ &PARM04
+ usingCartesianGrid=.FALSE.,
+ usingSphericalPolarGrid=.TRUE.,
+ delX= 774*0.020833333333333,
+ delY= 966*0.016666666666666,
+# delR = 2.0, 2.2, 2.3, 2.5, 2.8, 3.0, 3.3, 3.6, 3.9, 4.3, 4.6, 5.0, 5.4, 5.9, 6.4, 6.9, 7.4, 7.9, 8.5, 9.1, 9.7, 10.4, 11.0, 11.7, 12.4, 13.2, 14.0, 14.8, 15.6,
+#        16.4, 17.3, 18.2, 19.1, 20.1, 21.1, 22.1, 23.1, 24.2, 25.2, 26.4, 27.5, 28.7, 29.8, 31.1, 32.3, 33.6, 34.9, 36.2, 37.6, 38.9, 40.3, 41.8, 43.2, 44.7, 46.2,
+#        47.8, 49.4, 51.0, 52.6, 54.2, 55.9, 57.6, 59.4, 61.1, 62.9, 64.8, 66.6, 68.5, 70.4, 72.3, 74.3, 76.3, 78.3, 80.4, 82.5, 84.6, 86.7, 88.9, 91.1, 93.3, 95.6, 
+#        97.8, 100.2, 102.5, 104.9, 107.3, 109.7, 112.2, 114.7, 117.2, 119.8, 122.4, 125.0, 127.6, 130.3, 133.0, 135.7, 138.5, 141.3, 143.6,
+ delRFile='../BATHY/delRFile_100_5100m.bin',
+ xgOrigin = 229.9895833333333,
+ ygOrigin = 26.9916666666667,
+ /
+
+# Input datasets
+ &PARM05
+ bathyFile      ='../BATHY/TFO_2km_bathy_AV.bin',
+ hydrogThetaFile='../ICS/T_ccs_1nov2019.bin',
+ hydrogSaltFile ='../ICS/S_ccs_1nov2019.bin',
+ uVelInitFile   ='../ICS/U_ccs_1nov2019.bin',
+ vVelInitFile   ='../ICS/V_ccs_1nov2019.bin',
+ pSurfInitFile  ='../ICS/Pini_TFOfrmHYCOM_V1.bin',
+ viscAhDfile     = 'visc100_ccs.bin',
+ viscAhZfile     = 'visc100_ccs.bin',
+# adTapeDir      = '/tmp/',
+ /

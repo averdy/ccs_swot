@@ -1,0 +1,53 @@
+#
+# ***************
+# Open boundaries
+# ***************
+ &OBCS_PARM01
+ OB_Jnorth=   774*966,
+ OB_Jsouth=   774*1,
+ OB_Iwest=    966*1,
+#
+ useOrlanskiNorth=.FALSE.,
+ useOBCSsponge=.TRUE.,
+ useLinearSponge=.TRUE.,
+ OBCSsponge_Salt=.FALSE.,
+ OBCSsponge_Theta=.FALSE.,
+ useOBCSbalance=.FALSE.,
+ useOBCSprescribe=.TRUE.,
+#
+ OBNuFile='../BCS/U_obcn_zeros_ccs_2019.bin',
+ OBNvFile='../BCS/V_obcn_bal_hycom_ccs_2019.bin',
+ OBNtFile='../BCS/T_obcn_hycom_ccs_2019.bin',
+ OBNsFile='../BCS/S_obcn_hycom_ccs_2019.bin',
+#
+ OBSuFile='../BCS/U_obcs_zeros_ccs_2019.bin',
+ OBSvFile='../BCS/V_obcs_bal_hycom_ccs_2019.bin',
+ OBStFile='../BCS/T_obcs_hycom_ccs_2019.bin',
+ OBSsFile='../BCS/S_obcs_hycom_ccs_2019.bin',
+#
+ OBWuFile='../BCS/U_obcw_aviso_hycom_ccs_2019.bin',
+ OBWvFile='../BCS/V_obcw_zeros_ccs_2019.bin',
+ OBWtFile='../BCS/T_obcw_hycom_ccs_2019.bin',
+ OBWsFile='../BCS/S_obcw_hycom_ccs_2019.bin',
+#
+#  MITgcm/verification/seaice_obcs/input.tides
+   useOBCStides = .FALSE.,
+#
+ /
+# *****************************************
+# Orlanski Boundary Condition Parameters.
+# *****************************************
+ &OBCS_PARM02
+# cvelTimeScale = 2000.,
+ /
+
+# *****************************************
+# Sponge Layer Parameters.
+# *****************************************
+ &OBCS_PARM03
+ Urelaxobcsinner=864000.E0,
+ Urelaxobcsbound=43200.E0,
+ Vrelaxobcsinner=864000.E0,
+ Vrelaxobcsbound=43200.E0,
+ spongeThickness=10,
+ /
