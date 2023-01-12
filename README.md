@@ -116,7 +116,7 @@ and then use <br />
 # Model inputs
 
 1) <b>grid:</b> <br />
-- Bathymetry is from Alex: TFO_2km_bathy.bin <br />
+- Bathymetry is adapted from Alex's: TFO_2km_bathy_AV.bin <br />
 - Vertical resolution is Ariane's 100 levels: delRFile_100_5100m.bin <br />
 - I ran the model for a few time steps to generate grid files (XC.data, YC.data, etc) <br />
 
