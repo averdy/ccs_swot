@@ -155,8 +155,7 @@ Create run directory <br />
 % mkdir /nobackup/averdy/CCS/run_ad <br />
 
 Clean folder and make links <br />
-% ./clean.x
-% ./make_links.x
+% ./clean_adj.x
 
 Submit to queue <br />
 % qsub pleiades_adj_submit.x
