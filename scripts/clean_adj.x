@@ -18,13 +18,7 @@ cp build_pack/mitgcmuv /nobackup/averdy/CCS/run_ad/mitgcmuv_pack
 cp build_unpack/mitgcmuv /nobackup/averdy/CCS/run_ad/mitgcmuv_unpack
 cp ../../optim/optim.x /nobackup/averdy/CCS/run_ad/
 
-cp inputs/* /nobackup/averdy/CCS/run_ad
+cp input_ad/* /nobackup/averdy/CCS/run_ad
 
 ln -sf /nobackup/hzhang1/forcing/era5/ERA5* /nobackup/averdy/CCS/run_ad/
-ln -sf /nobackup/averdy/CCS/BATHY/* /nobackup/averdy/CCS/run_ad/
-ln -sf /nobackup/averdy/CCS/ICS/* /nobackup/averdy/CCS/run_ad/
-ln -sf /nobackup/averdy/CCS/BCS* /nobackup/averdy/CCS/run_ad/
-ln -sf /nobackup/averdy/CCS/constraints/* /nobackup/averdy/CCS/run_ad/
-
-
-
+ln -sf /nobackup/averdy/CCS/SWOT_input/* /nobackup/averdy/CCS/run_ad/
