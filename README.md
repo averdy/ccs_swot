@@ -23,9 +23,7 @@ The high-resolution CCS regional state estimate runs on the NASA Pleiades comput
 
 <b>Notes on the code:</b>
 - The size of the model grid is 774x966, with 126 tiles of size 86x69. Thus it requires 126 processes to run. With Alex's original 36-tile configuration, the memory use is too high (nodes crash). <br />
-- The time step is 300 seconds (5 minutes). It takes *** minutes to run 22 days fwd+adjoint (45 minutes fwd). <br />
 - It is set up for a 22-day run. For longer runs, need to adjust tamc.h  <br />
-- Still tuning CPP_OPTIONS, etc <br />
 
 
 -----------------
