@@ -88,6 +88,15 @@ c-- assume daily fields
               middate(k)=0
            enddo
            tempDate_1 = yday*10000+100+1
+CAV Here we want to determine what record to read in obs file
+CAV With yearly obs files, data starts on Jan 1, so we want to know
+CAV how many days have passed since the beginning of the year. 
+CAV The code above instead finds how many days since the beginning of 
+CAV the simulation, which is wrong (unless the obs file starts on the
+CAV same date as the simulation).
+CAV Solution: always using tempDate_1, and edit cost_generic 
+CAV where weights are read. 
+CAV A better solution might be to use gencost_startdate(1)
 c           if ( ymod .GE. yday ) then
 c              call cal_FullDate( modelstartdate(1), 0, middate, mythid)
 c           else
