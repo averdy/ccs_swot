@@ -1,0 +1,11 @@
+# Packages
+ &PACKAGES
+ useECCO        = .TRUE.,
+ useCAL         = .TRUE.,
+ useEXF         = .TRUE.,
+ useKPP         = .TRUE.,
+ useOBCS        = .TRUE.,
+ useOBSFIT    = .TRUE.,
+ useSMOOTH      = .TRUE.,
+ useDIAGNOSTICS = .TRUE.,
+ /

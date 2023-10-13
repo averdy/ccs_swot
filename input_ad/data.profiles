@@ -2,17 +2,17 @@
 # PROFILES cost f',tion
 # ******************
  &PROFILES_NML
-# profilesDir = 'PROF',
+ profilesDir = 'PROF',
  profilesfiles(1) = 'USGO_CA_2019_PFL_D',
- profilesfiles(2) = 'SIO_CA_2019_XBT.nc',
- profilesfiles(3) = 'WOD_CA_2019_GLD_A.nc',
- profilesfiles(4) = 'WOD_CA_2019_GLD_B.nc',
+ profilesfiles(2) = 'SIO_CA_2019_XBT',
+ profilesfiles(3) = 'WOD_CA_2019_GLD_A',
+ profilesfiles(4) = 'WOD_CA_2019_GLD_B',
  mult_profiles(1,1)   = 1.0,
  mult_profiles(1,2)   = 1.0,
- mult_profiles(2,1)   = 0.0,
- mult_profiles(2,2)   = 0.0,
- mult_profiles(3,1)   = 0.0,
- mult_profiles(3,2)   = 0.0,
- mult_profiles(4,1)   = 0.0,
- mult_profiles(4,2)   = 0.0,
+ mult_profiles(2,1)   = 1.0,
+ mult_profiles(2,2)   = 1.0,
+ mult_profiles(3,1)   = 1.0,
+ mult_profiles(3,2)   = 1.0,
+ mult_profiles(4,1)   = 1.0,
+ mult_profiles(4,2)   = 1.0,
  &

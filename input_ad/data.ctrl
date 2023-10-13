@@ -3,9 +3,9 @@
 # *********************
  &ctrl_nml
 #
- doZscalePack = .TRUE.,
- doZscaleUnpack = .TRUE.,
- delZexp = 1.,
+ doSinglePrecTapelev=.TRUE.,
+ ctrlSmoothCorrel2D=.FALSE.,
+ ctrlSmoothCorrel3D=.FALSE.,
  /
 #
 # *********************
@@ -93,5 +93,5 @@
  xx_gentim2d_preproc(2,7)='smooth',
  mult_gentim2d(7) = 1.0,
 #
- /
+/
 

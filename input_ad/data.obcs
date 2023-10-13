@@ -15,20 +15,20 @@
  useOBCSbalance=.FALSE.,
  useOBCSprescribe=.TRUE.,
 #
- OBNuFile='../BCS/U_obcn_zeros_ccs_2019.bin',
- OBNvFile='../BCS/V_obcn_bal_hycom_ccs_2019.bin',
- OBNtFile='../BCS/T_obcn_hycom_ccs_2019.bin',
- OBNsFile='../BCS/S_obcn_hycom_ccs_2019.bin',
+ OBNuFile='../SWOT_inputs/U_obcn_zeros_ccs_may2016.bin',
+ OBNvFile='../SWOT_inputs/v_obcn_glorysNRT_ccs_may2023.bin',
+ OBNtFile='../SWOT_inputs/t_obcn_glorysNRT_ccs_may2023.bin',
+ OBNsFile='../SWOT_inputs/s_obcn_glorysNRT_ccs_may2023.bin',
 #
- OBSuFile='../BCS/U_obcs_zeros_ccs_2019.bin',
- OBSvFile='../BCS/V_obcs_bal_hycom_ccs_2019.bin',
- OBStFile='../BCS/T_obcs_hycom_ccs_2019.bin',
- OBSsFile='../BCS/S_obcs_hycom_ccs_2019.bin',
+ OBSuFile='../SWOT_inputs/U_obcs_zeros_ccs_may2016.bin',
+ OBSvFile='../SWOT_inputs/v_obcs_glorysNRT_ccs_may2023.bin',
+ OBStFile='../SWOT_inputs/t_obcs_glorysNRT_ccs_may2023.bin',
+ OBSsFile='../SWOT_inputs/s_obcs_glorysNRT_ccs_may2023.bin',
 #
- OBWuFile='../BCS/U_obcw_aviso_hycom_ccs_2019.bin',
- OBWvFile='../BCS/V_obcw_zeros_ccs_2019.bin',
- OBWtFile='../BCS/T_obcw_hycom_ccs_2019.bin',
- OBWsFile='../BCS/S_obcw_hycom_ccs_2019.bin',
+ OBWuFile='../SWOT_inputs/u_obcw_zeronet_glorysNRT_ccs_may2023.bin',
+ OBWvFile='../SWOT_inputs/V_obcw_zeros_ccs_may2016.bin',
+ OBWtFile='../SWOT_inputs/t_obcw_glorysNRT_ccs_may2023.bin',
+ OBWsFile='../SWOT_inputs/s_obcw_glorysNRT_ccs_may2023.bin',
 #
 #  MITgcm/verification/seaice_obcs/input.tides
    useOBCStides = .FALSE.,

@@ -30,7 +30,18 @@
 #    levels(1,1) = 1., 
 #   filename(1) = 'diag_4Bia',
 #
-   frequency(1) = 86400.0,
+#   frequency(1) = 86400.0,
+#   timePhase(1) = 0.0,
+#   fields(1,1) = 'THETA   ',
+#                 'SALT    ',
+#                 'UVEL    ',
+#                 'VVEL    ',
+#                 'WVEL    ',
+#                 'PHIHYD  ',
+#                 'DRHODR  ',
+#   filename(1) = 'diags_3D',
+
+   frequency(1) = -43200.0,
    timePhase(1) = 0.0,
    fields(1,1) = 'THETA   ',
                  'SALT    ',
@@ -39,9 +50,12 @@
                  'WVEL    ',
                  'PHIHYD  ',
                  'DRHODR  ',
+#   levels(1,1) = 1.0,
    filename(1) = 'diags_3D',
+
 #
-    frequency(2) = 86400.0,
+    frequency(2) = -43200.0,
+    timePhase(2) = 0.0,
     fields(1,2) = 'ETAN    ',
 #                  'PHIBOT  ',
 #                  'TFLUX   ',
@@ -85,4 +99,4 @@
 #    stat_fname(1)= 'dynStDiag',
 #     stat_freq(1)= -864000.,
 #    stat_phase(1)= 0.,
- /
+/

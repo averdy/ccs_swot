@@ -1,0 +1,12 @@
+# ******************
+# OBSFIT cost f',tion
+# ******************
+ &OBSFIT_NML
+# obsfitDir = 'OBSFIT',
+# obsfitFiles(2) = 'ccs_sampled_5tracksSUB_obsfit_20230515_wt100',
+# mult_obsfit(2,5)   = 1.0,
+ obsfitFiles(1) = 'ccs_sampled_1mooringT_obsfit_20230515_new',
+ mult_obsfit(1,1)   = 1.0,
+ obsfitdoncoutput = .false.,
+ &
+
