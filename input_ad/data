@@ -60,7 +60,7 @@
 # Time stepping parameters
  &PARM03
  nIter0 =     0,
- nTimeSteps = 2016,
+ nTimeSteps = 1440,
  deltaTmom   = 300.0,
  deltaTtracer= 300.0,
  deltaTClock = 300.0,
