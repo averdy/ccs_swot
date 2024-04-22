@@ -5,7 +5,8 @@
  useEXF         = .TRUE.,
  useKPP         = .TRUE.,
  useOBCS        = .TRUE.,
- useOBSFIT    = .TRUE.,
+ useOBSFIT      = .TRUE.,
+ usePROFILES    = .TRUE.,
  useSMOOTH      = .TRUE.,
  useDIAGNOSTICS = .TRUE.,
  /

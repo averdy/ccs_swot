@@ -22,7 +22,7 @@
  vwindfile         = 'ERA5_NRT_v10m',
  swdownfile        = 'ERA5_NRT_dsw',
  lwdownfile        = 'ERA5_NRT_dlw',
- runoffFile        = '../SWOT_inputs/runoff_core_cnyf2p0_ccs_ms.bin',
+ runoffFile        = '../linked_files/runoff_core_cnyf2p0_ccs_ms.bin',
 # apressurefile     = 'ERA5_pres',  
 #
  atempstartdate1   = 19920101,

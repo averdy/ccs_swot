@@ -3,7 +3,7 @@
 # Off-line optimization parameters
 # ********************************
  &OPTIM
- optimcycle=0,
+ optimcycle=5,
  numiter=1000,
  nfunc=2,
  fmin=6650,

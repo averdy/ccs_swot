@@ -3,10 +3,10 @@
 # ******************
  &OBSFIT_NML
 # obsfitDir = 'OBSFIT',
-# obsfitFiles(2) = 'ccs_sampled_5tracksSUB_obsfit_20230515_wt100',
-# mult_obsfit(2,5)   = 1.0,
- obsfitFiles(1) = 'ccs_sampled_1mooringT_obsfit_20230515_new',
- mult_obsfit(1,1)   = 1.0,
+ obsfitFiles(1) = 'swot_L3_may2023',
+ mult_obsfit(1)  = 100.0,
+ obsfitFiles(2) = 'mooringsT_calval_may2023_oldcode',
+ mult_obsfit(2) = 0.0,
  obsfitdoncoutput = .false.,
  &
 
