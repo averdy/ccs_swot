@@ -3,10 +3,16 @@
 # ******************
  &OBSFIT_NML
 # obsfitDir = 'OBSFIT',
- obsfitFiles(1) = 'swot_L3_may2023',
+ obsfitFiles(1) = 'swotL3_may2023'
  mult_obsfit(1)  = 100.0,
- obsfitFiles(2) = 'mooringsT_calval_may2023_oldcode',
- mult_obsfit(2) = 0.0,
+ obsfitFiles(2) = 'mooringsT_calval_may2023'
+ mult_obsfit(2)  = 0.0,
+ obsfitFiles(3) = 'mooringsS_calval_may2023'
+ mult_obsfit(3)  = 0.0,
+ obsfitFiles(4) = 'glidersT_calval_may2023'
+ mult_obsfit(4)  = 0.0,
+ obsfitFiles(5) = 'glidersS_calval_may2023'
+ mult_obsfit(5)  = 0.0,
  obsfitdoncoutput = .false.,
  &
 

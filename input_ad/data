@@ -6,12 +6,12 @@
  &PARM01
 # global_oce_cs32 setup
  viscAz=2.E-5,
- viscAh=1.E2,
+ viscAh=2.E1,
 # viscA4=1.E11,
- diffKhT=1.E2,
+ diffKhT=2.E1,
  diffKzT=5.E-6,
 # diffK4T=1.E11,
- diffKhS=1.E2,
+ diffKhS=2.E1,
  diffKzS=5.E-6,
 # diffK4S=1.E11,
  viscC4Leith=2.15,
@@ -65,13 +65,13 @@
  deltaTtracer= 300.0,
  deltaTClock = 300.0,
  pickupStrictlyMatch=.FALSE.,
- dumpInitAndLast=.TRUE.
+ dumpInitAndLast=.FALSE.
  writePickupAtEnd=.FALSE.,
- pChkptFreq= 432000.,
+ pChkptFreq= 86400.,
  dumpFreq=   0.,
  taveFreq=   0.,
- adjDumpFreq=  86400.,
- monitorFreq= 432000.0,
+ adjDumpFreq= 0.,
+ monitorFreq= 86400.0,
  forcing_In_AB = .FALSE.,
  momDissip_In_AB=.FALSE.,
  doAB_onGtGs=.FALSE.,
@@ -106,7 +106,8 @@
  hydrogSaltFile ='../linked_files/S_ccs_glorysNRT_1may2023.bin',
  uVelInitFile   ='../linked_files/U_ccs_glorysNRT_1may2023.bin',
  vVelInitFile   ='../linked_files/V_ccs_glorysNRT_1may2023.bin',
- pSurfInitFile  ='../linked_files/SSH_ccs_glorysNRT_1may2023.bin',
+# pSurfInitFile  ='../linked_files/SSH_ccs_glorysNRT_1may2023.bin',
 # viscAhDfile     = '../linked_files/visc10_ccs.bin',
 # viscAhZfile     = '../linked_files/visc10_ccs.bin',
+# adTapeDir       = 'TEMPDIR',
  /
