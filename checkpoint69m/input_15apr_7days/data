@@ -1,0 +1,102 @@
+# ====================
+# | Model parameters |
+# ====================
+#
+# Continuous equation parameters
+ &PARM01
+ viscAr=5.6614E-4,
+ no_slip_sides = .TRUE.,
+ no_slip_bottom = .TRUE.,
+ viscAh=1.E1,
+ diffKhT=1.E1,
+ diffKhS=1.E1,
+ diffKrT=5.44E-7,
+ diffKrS=5.44E-7,
+ rhonil=1027.5,
+ rhoConstFresh=999.8,
+ eosType='JMD95Z',
+ hFacMin=0.3,
+ hFacInf=0.1,
+ hFacSup=5.,
+ implicitDiffusion=.TRUE.,
+ implicitViscosity=.TRUE.,
+ viscC4Leith=2.15,
+ viscC4Leithd=2.15,
+ viscA4GridMax=0.8,
+ useAreaViscLength=.TRUE.,
+  highOrderVorticity  = .TRUE.,
+ bottomDragQuadratic = 0.0021,
+ tempAdvScheme=33,
+ saltAdvScheme=33,
+ StaggerTimeStep=.TRUE.,
+ multiDimAdvection=.TRUE.,
+ vectorInvariantMomentum=.TRUE.,
+ implicitFreeSurface=.TRUE.,
+ exactConserv=.TRUE.,
+ debuglevel=-1,
+ convertFW2Salt=-1.,
+ useRealFreshWaterFlux=.TRUE.,
+ useSingleCPUio=.TRUE.,
+ readBinaryPrec=32,
+ writeBinaryPrec=32,
+ temp_EvPrRn=0.,
+ implicSurfPress = 0.6,
+ implicDiv2DFlow = 0.6,
+ /
+
+# Elliptic solver parameters
+ &PARM02
+ cg2dMaxIters = 100,
+ cg2dTargetResidual=1.E-5,
+ /
+
+# Time stepping parameters
+ &PARM03
+ nIter0 =     0,
+# nTimeSteps = 23039,
+ nTimeSteps = 10080,
+ deltaTmom   = 60.0,
+ deltaTtracer= 60.0,
+ deltaTClock = 60.0,
+ pickupStrictlyMatch=.FALSE.,
+ dumpInitAndLast=.FALSE.
+ writePickupAtEnd=.FALSE.,
+ pChkptFreq= 0.,
+ dumpFreq=   0.,
+# taveFreq=   0.,
+ adjDumpFreq= 0.,
+ monitorFreq= 86400.0,
+#
+# periodicExternalForcing=.TRUE.,
+# externForcingPeriod=2629800.,
+# externForcingCycle=31557600.,
+#
+ /
+
+# Gridding parameters
+ &PARM04
+ usingCartesianGrid=.FALSE.,
+ usingSphericalPolarGrid=.TRUE.,
+ delX= 774*0.020833333333333,
+ delY= 966*0.016666666666666,
+# delR = 2.0, 2.2, 2.3, 2.5, 2.8, 3.0, 3.3, 3.6, 3.9, 4.3, 4.6, 5.0, 5.4, 5.9, 6.4, 6.9, 7.4, 7.9, 8.5, 9.1, 9.7, 10.4, 11.0, 11.7, 12.4, 13.2, 14.0, 14.8, 15.6,
+#        16.4, 17.3, 18.2, 19.1, 20.1, 21.1, 22.1, 23.1, 24.2, 25.2, 26.4, 27.5, 28.7, 29.8, 31.1, 32.3, 33.6, 34.9, 36.2, 37.6, 38.9, 40.3, 41.8, 43.2, 44.7, 46.2,
+#        47.8, 49.4, 51.0, 52.6, 54.2, 55.9, 57.6, 59.4, 61.1, 62.9, 64.8, 66.6, 68.5, 70.4, 72.3, 74.3, 76.3, 78.3, 80.4, 82.5, 84.6, 86.7, 88.9, 91.1, 93.3, 95.6, 
+#        97.8, 100.2, 102.5, 104.9, 107.3, 109.7, 112.2, 114.7, 117.2, 119.8, 122.4, 125.0, 127.6, 130.3, 133.0, 135.7, 138.5, 141.3, 143.6,
+ delRFile='delRFile_100_5100m.bin',
+ xgOrigin = 229.9895833333333,
+ ygOrigin = 26.9916666666667,
+ /
+
+# Input datasets
+ &PARM05
+ bathyFile      ='TFO_2km_bathy_AV.bin',
+ hydrogThetaFile='T_ccs_glorysNRT_15april2023.bin',
+ hydrogSaltFile ='S_ccs_glorysNRT_15april2023.bin',
+ uVelInitFile   ='U_ccs_glorysNRT_15april2023.bin',
+ vVelInitFile   ='V_ccs_glorysNRT_15april2023.bin',
+# pSurfInitFile  ='../linked_files/SSH_ccs_glorysNRT_15april2023.bin',
+# viscAhDfile     = '../linked_files/visc10_ccs.bin',
+# viscAhZfile     = '../linked_files/visc10_ccs.bin',
+# adTapeDir       = 'TEMPDIR',
+ /
